@@ -1,0 +1,11 @@
+$black-100: #11101d;
+$black-150: #1d1b31;
+$white: #fff;
+%poppins {
+  font-family: "Poppins", sans-serif;
+}
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

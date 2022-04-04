@@ -1,0 +1,236 @@
+.sidebar-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.logo {
+  &__div {
+    color: #fff;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__name {
+    font-size: 20px;
+    font-weight: 400;
+  }
+  &__img {
+    font-size: 28px;
+    margin-right: 5px;
+  }
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 78px;
+  background: $black-100;
+  padding: 6px 14px;
+  transition: width 0.5s ease;
+  &__btn {
+    color: $white;
+    position: absolute;
+    left: 50%;
+    top: 15px;
+    font-size: 20px;
+    display: flex;
+    text-align: center;
+    line-height: 3;
+    transform: translateX(-50%);
+    svg {
+      height: 30px;
+      width: 30px;
+      pointer-events: none;
+    }
+  }
+  &__tooltip {
+    position: absolute;
+    height: 35px;
+    left: 122px;
+    top: 0;
+    transform: translate(-50%, -50%);
+    width: 122px;
+    border-radius: 6px;
+    line-height: 1;
+    @include center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    background-color: $white;
+    transition: top, opacity 0.5s ease;
+    opacity: 0;
+    pointer-events: none;
+  }
+  &__link {
+    color: $white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 12px;
+    white-space: nowrap;
+    transition: opacity color backgound-color 0.4s ease;
+    &:hover {
+      background-color: $white;
+      color: $black-100;
+      .sidebar__icon {
+        fill: $black-100;
+      }
+    }
+    &-name {
+      transition: opacity 0.4s ease;
+      opacity: 0;
+    }
+  }
+  &__active {
+    width: 240px;
+    .logo {
+      &__div {
+        opacity: 1;
+      }
+    }
+    .sidebar {
+      &__btn {
+        left: 90%;
+      }
+      &__tooltip {
+        display: none;
+      }
+      &__link-name {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+    .profile {
+      &__details {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      &__logOut {
+        left: 88%;
+      }
+    }
+  }
+  &__list {
+    margin-top: 20px;
+  }
+  &__search {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 12px;
+    border: none;
+    outline: transparent;
+    background-color: $black-150;
+    padding-left: 55px;
+    font-size: 18px;
+  }
+  &__searchBtn {
+    display: flex;
+    position: absolute;
+    left: 5px;
+    @include center;
+    z-index: 99;
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+    border-radius: 12px;
+
+    &:hover {
+      background-color: $white;
+
+      .sidebar__searchIcon {
+        stroke: $black-150;
+      }
+    }
+  }
+  &__searchIcon {
+    stroke: $white;
+    font-size: 22px;
+    pointer-events: none;
+    transition: stroke 0.5s ease;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin-left: 0 5px;
+    margin-bottom: 10px;
+    list-style: none;
+    line-height: 3;
+    border-radius: 12px;
+    &:hover {
+      .sidebar__tooltip {
+        top: 50%;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__icon {
+    text-align: center;
+    height: 25px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 3;
+    margin-right: 10px;
+    fill: $white;
+    transition: fill 0.4s ease;
+  }
+}
+
+.profile {
+  position: absolute;
+  color: $white;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  &__content {
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+    background-color: $black-150;
+  }
+  &__details {
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  &__img {
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  &__name {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  &__logOut {
+    position: absolute;
+    left: 50%;
+    height: 40px;
+    width: 40px;
+    @include center;
+    bottom: 5px;
+    transform: translateX(-50%);
+    min-width: 50px;
+    font-size: 20px;
+    border-radius: 12px;
+  }
+  &__logOutBtn {
+    stroke: $white;
+    line-height: 3;
+  }
+}
